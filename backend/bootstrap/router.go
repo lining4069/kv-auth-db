@@ -14,6 +14,7 @@ func setupRouter() *gin.Engine {
 	apiGroup := router.Group("/api")
 	routes.SetApiGroupRoutes(apiGroup)
 
+	// 返回整体项目路由
 	return router
 }
 
