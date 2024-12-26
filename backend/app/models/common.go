@@ -12,8 +12,8 @@ type ID struct {
 
 // Timestamps 创建和更新时间
 type Timestamps struct {
-	CreateAt time.Time `json:"create_at"`
-	UpdateAt time.Time `json:"update_at"`
+	CreateAt time.Time `gorm:"autoCreateTime;column:create_at;comment:创建时间" json:"create_at"`
+	UpdateAt time.Time `gorm:"autoUpdateTime;column:update_at;comment:更新时间" json:"update_at"`
 }
 
 // SoftDeletes 软删除

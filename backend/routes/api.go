@@ -3,6 +3,7 @@ package routes
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/lining4069/ops-go/backend/app/common/request"
+	"github.com/lining4069/ops-go/backend/controllers/app"
 	"net/http"
 )
 
@@ -28,4 +29,5 @@ func SetApiGroupRoutes(router *gin.RouterGroup) {
 		})
 
 	})
+	router.POST("/auth/register", app.Register)
 }
