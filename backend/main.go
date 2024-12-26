@@ -1,11 +1,9 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"github.com/lining4069/ops-go/backend/bootstrap"
 	"github.com/lining4069/ops-go/backend/global"
 	"go.uber.org/zap"
-	"net/http"
 )
 
 func main() {
@@ -27,12 +25,7 @@ func main() {
 			}
 		}
 	}()
-	// 路由
-	r := gin.Default()
 
-	r.GET("/ping", func(c *gin.Context) {
-		c.String(http.StatusOK, "pong")
-	})
 	// 启动服务器
-	r.Run(":" + global.App.Config.App.Port)
+	bootstrap.RunServer()
 }
