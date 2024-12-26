@@ -27,3 +27,4 @@ go.work.sum
 /docker-configs/mysql/data
 /docker-configs/mysql/logs
 /docker-configs/mysql/run
+/backend/storage/logs/*
