@@ -30,13 +30,13 @@ database:
   log_filename: sql.log # 日志文件名称
 
 jwt:
-  secret: MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgyL/tft4a6NBfRe6raU1M5UUH+YZ4qe191WyRHDalLg+hRANCAASnpRLcB3jhwvHQbUUHPoei0Sia7Zl20YLkwWxMW0KkGz/72d4Ud9aElfmLvO1FNMNiSMkvtvMtVcucFIfPmLGI
-  jwt_ttl: 43200
-  jwt_blacklist_grace_period: 10
+  secret: MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgyL/tft4a6NBfRe6raU1M5UUH+YZ4qe191WyRHDalLg+hRANCAASnpRLcB3jhwvHQbUUHPoei0Sia7Zl20YLkwWxMW0KkGz/72d4Ud9aElfmLvO1FNMNiSMkvtvMtVcucFIfPmLGI # 256对称加密秘钥
+  jwt_ttl: 43200  # token有效期
+  jwt_blacklist_grace_period: 10 # jwt在黑名单中的宽限时间，避免并发请求失败
 
 redis:
-  host: 127.0.0.1
-  port: 6379
-  db: 0
-  password:
+  host: 127.0.0.1  # 主机
+  port: 6379 #端口
+  db: 0 # 数据仓
+  password: # 密码
 
