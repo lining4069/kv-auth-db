@@ -19,6 +19,10 @@ func SetApiGroupRoutes(router *gin.RouterGroup) {
 	router.POST("/auth/login", app.Login)
 	// 使用Use给路由组增加中间件
 	authRouter := router.Group("").Use(middleware.JWTAuth(services.AppGuardName))
-	// 获取当前登录用户信息
-	authRouter.POST("/auth/info", app.Info)
+	{
+		// 获取当前登录用户信息
+		authRouter.POST("/auth/info", app.Info)
+		// 登出
+		authRouter.POST("/auth/logout", app.Logout)
+	}
 }

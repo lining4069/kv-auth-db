@@ -38,5 +38,5 @@ redis:
   host: 127.0.0.1  # 主机
   port: 6379 #端口
   db: 0 # 数据仓
-  password: # 密码
+  password: q1w2e3r4 # 密码
 
