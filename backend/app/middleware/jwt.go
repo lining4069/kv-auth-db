@@ -17,19 +17,20 @@ func JWTAuth(GuardName string) gin.HandlerFunc {
 			c.Abort()
 			return
 		}
-
 		tokenStr = tokenStr[len(services.TokenType)+1:]
+
 		// Token解析
 		token, err := jwt.ParseWithClaims(tokenStr, &services.CustomClaims{}, func(token *jwt.Token) (interface{}, error) {
 			return []byte(global.App.Config.Jwt.Secret), nil
 		})
-		if err != nil {
+		// 解析失败或当前Token在Redis缓存的黑名单中，则说明当前token无效
+		if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
 			response.TokenFail(c)
 			c.Abort()
 			return
 		}
-
 		claims := token.Claims.(*services.CustomClaims)
+
 		// 发布者校验
 		if claims.Issuer != GuardName {
 			response.TokenFail(c)
