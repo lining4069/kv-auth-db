@@ -27,3 +27,13 @@ func Register(c *gin.Context) {
 		response.Success(c, user)
 	}
 }
+
+// Info 获取当前用户信息
+func Info(c *gin.Context) {
+	err, user := services.UserService.GetUserInfo(c.Keys["id"].(string))
+	if err != nil {
+		response.BusinessFail(c, err.Error())
+		return
+	}
+	response.Success(c, user)
+}
