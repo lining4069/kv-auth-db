@@ -7,23 +7,24 @@ import (
 	"github.com/lining4069/ops-go/backend/app/services"
 )
 
-/*
-Controllers层
-校验入参,处理响应等工作
-调用app/services下，对应的服务，完成对应逻辑
-*/
-
-// Register 用户注册
-func Register(c *gin.Context) {
-	var form request.Register // 用户注册入参 app/common/request/user.go
+// Login controllers层实现登录
+func Login(c *gin.Context) {
+	// 校验入参
+	var form request.Login
 	if err := c.ShouldBindJSON(&form); err != nil {
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
 		return
 	}
-	// 注册
-	if err, user := services.UserService.Register(form); err != nil {
+	//登录
+	if err, user := services.UserService.Login(form); err != nil {
 		response.BusinessFail(c, err.Error())
 	} else {
-		response.Success(c, user)
+		//生成用户登录token
+		tokenData, err, _ := services.JwtService.CreateToken(services.AppGuardName, user)
+		if err != nil {
+			response.BusinessFail(c, err.Error())
+			return
+		}
+		response.Success(c, tokenData)
 	}
 }

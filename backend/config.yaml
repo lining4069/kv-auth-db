@@ -28,3 +28,7 @@ database:
   log_mode: info # 日志级别
   enable_file_log_writer: true # 是否启用日志文件
   log_filename: sql.log # 日志文件名称
+
+jwt:
+  secret: MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgyL/tft4a6NBfRe6raU1M5UUH+YZ4qe191WyRHDalLg+hRANCAASnpRLcB3jhwvHQbUUHPoei0Sia7Zl20YLkwWxMW0KkGz/72d4Ud9aElfmLvO1FNMNiSMkvtvMtVcucFIfPmLGI
+  jwt_ttl: 43200

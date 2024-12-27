@@ -16,6 +16,7 @@ func SetApiGroupRoutes(router *gin.RouterGroup) {
 	router.GET("/ping", func(c *gin.Context) {
 		c.String(http.StatusOK, "pong")
 	})
+	// 测试注册
 	router.POST("/user/register", func(c *gin.Context) {
 		var form request.Register
 		if err := c.ShouldBindJSON(&form); err != nil {
@@ -29,5 +30,8 @@ func SetApiGroupRoutes(router *gin.RouterGroup) {
 		})
 
 	})
+	// 注册
 	router.POST("/auth/register", app.Register)
+	// 登录
+	router.POST("/auth/login", app.Login)
 }
