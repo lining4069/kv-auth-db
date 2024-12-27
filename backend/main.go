@@ -9,6 +9,7 @@ import (
 func main() {
 	// 初始化配置
 	bootstrap.InitializeConfig()
+
 	// 初始化日志配置
 	global.App.Log = bootstrap.InitializeLog()
 	global.App.Log.Info("log init success !")
@@ -28,6 +29,9 @@ func main() {
 
 	// 初始化验证器
 	bootstrap.InitializeValidator()
+
+	// 初始化Redis
+	global.App.Redis = bootstrap.InitializeRedis()
 
 	// 启动服务器
 	bootstrap.RunServer()
