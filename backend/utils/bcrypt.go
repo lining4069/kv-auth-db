@@ -1,8 +1,6 @@
 package utils
 
 import (
-	"github.com/lining4069/ops-go/backend/global"
-	"go.uber.org/zap"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -13,7 +11,7 @@ import (
 func BcryptMake(pwd []byte) string {
 	hash, err := bcrypt.GenerateFromPassword(pwd, bcrypt.MinCost)
 	if err != nil {
-		global.App.Log.Error("encode error", zap.Any("err", err))
+		println("encode the password error")
 	}
 	return string(hash)
 }

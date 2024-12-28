@@ -2,6 +2,7 @@ package services
 
 import (
 	"context"
+	"errors"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/lining4069/ops-go/backend/global"
 	"github.com/lining4069/ops-go/backend/utils"
@@ -86,4 +87,14 @@ func (jwtService *jwtService) IsInBlacklist(tokenStr string) bool {
 	}
 	return true
 
+}
+
+func (jwtService *jwtService) GetUserInfo(GuardName string, id string) (err error, user JwtUser) {
+	switch GuardName {
+	case AppGuardName:
+		return UserService.GetUserInfo(id)
+	default:
+		err = errors.New("guard" + GuardName + "does not exist")
+	}
+	return
 }
