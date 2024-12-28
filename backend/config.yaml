@@ -1,5 +1,5 @@
 app: # 应用基本配置
-  env: local # 环境名称
+  env: local # 环境名称 local test production
   port: 8888 # 服务监听端口号
   app_name: gin-app # 应用名称
   app_url: http://localhost # 应用域名
@@ -33,7 +33,7 @@ jwt:
   secret: MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgyL/tft4a6NBfRe6raU1M5UUH+YZ4qe191WyRHDalLg+hRANCAASnpRLcB3jhwvHQbUUHPoei0Sia7Zl20YLkwWxMW0KkGz/72d4Ud9aElfmLvO1FNMNiSMkvtvMtVcucFIfPmLGI # 256对称加密秘钥
   jwt_ttl: 43200  # token有效期
   jwt_blacklist_grace_period: 10 # jwt在黑名单中的宽限时间，避免并发请求失败，s
-  refresh_grace_period: 1800 # token自动刷新距离token失效的时间时间，s
+  refresh_grace_period: 43200 # token自动刷新距离token失效的时间时间，s
 
 redis:
   host: 127.0.0.1  # 主机
