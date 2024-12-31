@@ -12,8 +12,6 @@ services:
     restart: always
     ports:
       - "8888:8888"
-    expose:
-      - "8888"
     volumes:
       - "./docker-configs/backend/config/config.yaml:/backend/config.yaml"
       - "./docker-configs/backend/data:/backend/storage"
@@ -25,12 +23,10 @@ services:
     restart: always
     ports:
       - "3306:3306"
-    expose:
-      - "3306"
     environment:
       MYSQL_ROOT_PASSWORD: q1w2e3r4
       MYSQL_DATABASE: ops_by_go
-      TE: "Asia/Shanghai"
+      TZ: "Asia/Shanghai"
     volumes:
       - "./docker-configs/mysql/logs:/logs"
       - "./docker-configs/mysql/data:/var/lib/mysql"
@@ -43,8 +39,8 @@ services:
     restart: always
     ports:
       - "6379:6379"
-    expose:
-      - "6379"
+    environment:
+      TZ: "Asia/Shanghai"
     volumes:
       - "./docker-configs/redis/redis.conf:/etc/redis/redis.conf"
       - "./docker-configs/redis/data:/data"
