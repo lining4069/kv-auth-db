@@ -88,28 +88,36 @@ func initMysqlGorm() *gorm.DB {
 	// 构建mysql连接信息
 	dsn := dbConfig.UserName + ":" + dbConfig.Password + "@tcp(" + dbConfig.Host + ":" + strconv.Itoa(dbConfig.Port) + ")/" +
 		dbConfig.Database + "?charset=" + dbConfig.Charset + "&parseTime=True&loc=Local"
-	mysqlConfig := mysql.Config{
-		DSN:                       dsn,   // DSN data source name
-		DefaultStringSize:         191,   // string 类型字段的默认长度
-		DisableDatetimePrecision:  true,  //禁用datetime精度
-		DontSupportRenameIndex:    true,  // 重名索引时采用删除并新建方式
-		DontSupportRenameColumn:   true,  //用change 重名列
-		SkipInitializeWithVersion: false, //根据版本自动配置
+
+	// 连接重试机制
+	maxRetries := 5
+	retryInterval := 3 * time.Second
+	for i := 0; i < maxRetries; i++ {
+		mysqlConfig := mysql.Config{
+			DSN:                       dsn,   // DSN data source name
+			DefaultStringSize:         191,   // string 类型字段的默认长度
+			DisableDatetimePrecision:  true,  //禁用datetime精度
+			DontSupportRenameIndex:    true,  // 重名索引时采用删除并新建方式
+			DontSupportRenameColumn:   true,  //用change 重名列
+			SkipInitializeWithVersion: false, //根据版本自动配置
+		}
+		db, err := gorm.Open(mysql.New(mysqlConfig), &gorm.Config{
+			DisableForeignKeyConstraintWhenMigrating: true,            // 禁用自动创建外检约束
+			Logger:                                   getGormLogger(), // 使用自定义的Logger 替换默认输出到终端的logger
+		})
+		if err == nil {
+			sqlDB, _ := db.DB()
+			sqlDB.SetMaxIdleConns(dbConfig.MaxIdleConns) // 空闲连接池中连接的最大数量
+			sqlDB.SetMaxOpenConns(dbConfig.MaxOpenConns) // # 打开数据库连接的最大数量
+			// 数据库初始化
+			initMySqlTables(db)
+			return db
+		}
+		global.App.Log.Error("mysql connect failed, retrying", zap.Int("attempt", i+1), zap.Error(err))
+		time.Sleep(retryInterval)
 	}
-	if db, err := gorm.Open(mysql.New(mysqlConfig), &gorm.Config{
-		DisableForeignKeyConstraintWhenMigrating: true,            // 禁用自动创建外检约束
-		Logger:                                   getGormLogger(), // 使用自定义的Logger 替换默认输出到终端的logger
-	}); err != nil {
-		global.App.Log.Error("mysql connect failed,err:", zap.Any("err", err))
-		return nil
-	} else {
-		sqlDB, _ := db.DB()
-		sqlDB.SetMaxIdleConns(dbConfig.MaxIdleConns) // 空闲连接池中连接的最大数量
-		sqlDB.SetMaxOpenConns(dbConfig.MaxOpenConns) // # 打开数据库连接的最大数量
-		// 数据库初始化
-		initMySqlTables(db)
-		return db
-	}
+	global.App.Log.Error("mysql connect failed ! ")
+	return nil
 }
 
 // 数据库表初始化

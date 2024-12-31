@@ -2,7 +2,7 @@ app: # 应用基本配置
   env: local # 环境名称 local test production
   port: 8888 # 服务监听端口号
   app_name: backend-app # 应用名称
-  app_url: http://localhost # 应用域名
+  app_url: 127.0.0.1 # 应用域名
 
 log:
   level: info # 日志级别
@@ -17,7 +17,7 @@ log:
 
 database:
   driver: mysql # 数据库驱动
-  host: 127.0.0.1 # 域名
+  host: ops-mysql # 域名
   port: 3306 # 端口号
   database: ops_by_go # 数据库名称
   username: root # 用户名
@@ -36,7 +36,7 @@ jwt:
   refresh_grace_period: 43200 # token自动刷新距离token失效的时间时间，s
 
 redis:
-  host: 127.0.0.1  # 主机
+  host: ops-redis  # 主机
   port: 6379 #端口
   db: 0 # 数据仓
   password: q1w2e3r4 # 密码
