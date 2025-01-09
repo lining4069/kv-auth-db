@@ -2,9 +2,9 @@ package bootstrap
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/lining4069/ops-go/backend/app/middleware"
-	"github.com/lining4069/ops-go/backend/global"
-	"github.com/lining4069/ops-go/backend/routes"
+	"github.com/lining4069/kv-auth-db/backend/app/middleware"
+	"github.com/lining4069/kv-auth-db/backend/global"
+	"github.com/lining4069/kv-auth-db/backend/routes"
 	"go.uber.org/zap"
 )
 

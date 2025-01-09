@@ -3,7 +3,7 @@ package bootstrap
 import (
 	"fmt"
 	"github.com/fsnotify/fsnotify"
-	"github.com/lining4069/ops-go/backend/global"
+	"github.com/lining4069/kv-auth-db/backend/global"
 	"github.com/spf13/viper"
 	"os"
 )

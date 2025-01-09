@@ -1,6 +1,6 @@
-# ops-go
+# kv-auth-db
 
-operation platform system by go
+bitcask 内嵌数据库+auth 用户权限管理+可视化页面+docker compose 部署
 
 ## 项目结构
 

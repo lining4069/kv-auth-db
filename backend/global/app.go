@@ -2,7 +2,7 @@ package global
 
 import (
 	"github.com/go-redis/redis/v8"
-	"github.com/lining4069/ops-go/backend/config"
+	"github.com/lining4069/kv-auth-db/backend/config"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"gorm.io/gorm"

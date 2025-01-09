@@ -1,8 +1,8 @@
 package bootstrap
 
 import (
-	"github.com/lining4069/ops-go/backend/global"
-	"github.com/lining4069/ops-go/backend/utils"
+	"github.com/lining4069/kv-auth-db/backend/global"
+	"github.com/lining4069/kv-auth-db/backend/utils"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"

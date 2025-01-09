@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/lining4069/ops-go/backend/global"
-	"github.com/lining4069/ops-go/backend/utils"
+	"github.com/lining4069/kv-auth-db/backend/global"
+	"github.com/lining4069/kv-auth-db/backend/utils"
 	"strconv"
 	"time"
 )

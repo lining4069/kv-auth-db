@@ -3,7 +3,7 @@ package bootstrap
 import (
 	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/validator/v10"
-	"github.com/lining4069/ops-go/backend/utils"
+	"github.com/lining4069/kv-auth-db/backend/utils"
 	"reflect"
 	"strings"
 )

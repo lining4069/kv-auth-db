@@ -3,7 +3,7 @@ package bootstrap
 import (
 	"context"
 	"github.com/go-redis/redis/v8"
-	"github.com/lining4069/ops-go/backend/global"
+	"github.com/lining4069/kv-auth-db/backend/global"
 	"go.uber.org/zap"
 	"strconv"
 )

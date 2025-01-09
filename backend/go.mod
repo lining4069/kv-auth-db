@@ -1,4 +1,4 @@
-module github.com/lining4069/ops-go/backend
+module github.com/lining4069/kv-auth-db/backend
 
 go 1.22.5
 
@@ -60,4 +60,11 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/driver/mysql v1.5.7 // indirect
 	gorm.io/gorm v1.25.12 // indirect
+)
+
+require (
+	github.com/plar/go-adaptive-radix-tree v1.0.5
+	go.etcd.io/bbolt v1.3.10
+	github.com/google/btree v1.1.2
+	github.com/gofrs/flock v0.12.1
 )

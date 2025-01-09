@@ -3,9 +3,9 @@ package middleware
 import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
-	"github.com/lining4069/ops-go/backend/app/common/response"
-	"github.com/lining4069/ops-go/backend/app/services"
-	"github.com/lining4069/ops-go/backend/global"
+	"github.com/lining4069/kv-auth-db/backend/app/common/response"
+	"github.com/lining4069/kv-auth-db/backend/app/services"
+	"github.com/lining4069/kv-auth-db/backend/global"
 	"strconv"
 	"time"
 )

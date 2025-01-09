@@ -2,10 +2,10 @@ package services
 
 import (
 	"errors"
-	"github.com/lining4069/ops-go/backend/app/common/request"
-	"github.com/lining4069/ops-go/backend/app/models"
-	"github.com/lining4069/ops-go/backend/global"
-	"github.com/lining4069/ops-go/backend/utils"
+	"github.com/lining4069/kv-auth-db/backend/app/common/request"
+	"github.com/lining4069/kv-auth-db/backend/app/models"
+	"github.com/lining4069/kv-auth-db/backend/global"
+	"github.com/lining4069/kv-auth-db/backend/utils"
 	"strconv"
 )
 
