@@ -2,9 +2,9 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/lining4069/ops-go/backend/app/middleware"
-	"github.com/lining4069/ops-go/backend/app/services"
-	"github.com/lining4069/ops-go/backend/controllers/app"
+	"github.com/lining4069/kv-auth-db/backend/app/middleware"
+	"github.com/lining4069/kv-auth-db/backend/app/services"
+	"github.com/lining4069/kv-auth-db/backend/controllers/app"
 )
 
 /*

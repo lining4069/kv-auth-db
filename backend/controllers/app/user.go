@@ -2,9 +2,9 @@ package app
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/lining4069/ops-go/backend/app/common/request"
-	"github.com/lining4069/ops-go/backend/app/common/response"
-	"github.com/lining4069/ops-go/backend/app/services"
+	"github.com/lining4069/kv-auth-db/backend/app/common/request"
+	"github.com/lining4069/kv-auth-db/backend/app/common/response"
+	"github.com/lining4069/kv-auth-db/backend/app/services"
 )
 
 /*

@@ -1,4 +1,4 @@
-module github.com/lining4069/ops-go/backend
+module github.com/lining4069/kv-auth-db/backend
 
 go 1.22.5
 

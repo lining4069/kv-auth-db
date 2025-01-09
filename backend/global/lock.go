@@ -3,7 +3,7 @@ package global
 import (
 	"context"
 	"github.com/go-redis/redis/v8"
-	"github.com/lining4069/ops-go/backend/utils"
+	"github.com/lining4069/kv-auth-db/backend/utils"
 	"time"
 )
 

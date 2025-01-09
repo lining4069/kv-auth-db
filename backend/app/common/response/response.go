@@ -2,7 +2,7 @@ package response
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/lining4069/ops-go/backend/global"
+	"github.com/lining4069/kv-auth-db/backend/global"
 	"net/http"
 	"os"
 )

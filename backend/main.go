@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/lining4069/ops-go/backend/bootstrap"
-	"github.com/lining4069/ops-go/backend/global"
+	"github.com/lining4069/kv-auth-db/backend/bootstrap"
+	"github.com/lining4069/kv-auth-db/backend/global"
 	"go.uber.org/zap"
 )
 

@@ -1,8 +1,8 @@
 package bootstrap
 
 import (
-	"github.com/lining4069/ops-go/backend/app/models"
-	"github.com/lining4069/ops-go/backend/global"
+	"github.com/lining4069/kv-auth-db/backend/app/models"
+	"github.com/lining4069/kv-auth-db/backend/global"
 	"go.uber.org/zap"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"gorm.io/driver/mysql"
