@@ -91,7 +91,7 @@ func initMysqlGorm() *gorm.DB {
 
 	// 连接重试机制
 	maxRetries := 5
-	retryInterval := 3 * time.Second
+	retryInterval := 10 * time.Second
 	for i := 0; i < maxRetries; i++ {
 		mysqlConfig := mysql.Config{
 			DSN:                       dsn,   // DSN data source name

@@ -41,3 +41,6 @@ redis:
   db: 0 # 数据仓
   password: q1w2e3r4 # 密码
 
+bitcaskDB:
+  dir_path: ./storage/bitcaskdb # 日志根目录
+
