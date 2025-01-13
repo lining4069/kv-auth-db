@@ -25,4 +25,10 @@ func SetApiGroupRoutes(router *gin.RouterGroup) {
 		// 登出
 		authRouter.POST("/auth/logout", app.Logout)
 	}
+	bitcaskRouter := router.Group("bitcask").Use(middleware.JWTAuth(services.AppGuardName))
+	{
+		bitcaskRouter.POST("/put", app.BitcaskPut)    // bitcask 数据库put
+		bitcaskRouter.GET("/get:key", app.BitcaskGet) // bitcask 数据库put
+	}
+
 }

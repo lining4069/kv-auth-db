@@ -25,8 +25,8 @@ type CustomClaims struct {
 }
 
 const (
-	TokenType    = "Bearer" // token类型 JWT token前缀默认为Bearer
-	AppGuardName = "ops-go" // token 发行者名称
+	TokenType    = "Bearer"     // token类型 JWT token前缀默认为Bearer
+	AppGuardName = "kv-auth-db" // token 发行者名称
 )
 
 type TokenOutPut struct {

@@ -19,7 +19,7 @@ func setupRouter() *gin.Engine {
 	router.Use(middleware.Cors())
 
 	//注册 api 分组路由
-	apiGroup := router.Group("/api")
+	apiGroup := router.Group("/api/v1")
 	routes.SetApiGroupRoutes(apiGroup)
 
 	// 返回整体项目路由
