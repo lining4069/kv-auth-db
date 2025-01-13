@@ -14,6 +14,7 @@ bitcask 内嵌数据库+auth 用户权限管理+可视化页面+docker compose �
 ### Backend 组织架构
 
 * app 应用层
+    * bitcask(https://github.com/lining4069/bitcask-go.git) KV存储数据库内嵌
     * common 服务请求request和响应response 定义、封装
     * middleware 中间件 jwt认证中间件等
     * models 模型层
