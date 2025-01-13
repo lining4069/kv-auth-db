@@ -22,7 +22,7 @@ func BitcaskPut(c *gin.Context) {
 }
 
 func BitcaskGet(c *gin.Context) {
-	key := c.Param("key")
+	key := c.DefaultQuery("key", "")
 	if err, value := services.BitcaskSBService.Get(key); err != nil {
 		response.BusinessFail(c, err.Error())
 	} else {
